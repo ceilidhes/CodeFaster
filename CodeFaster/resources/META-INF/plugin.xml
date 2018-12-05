@@ -1,0 +1,63 @@
+<idea-plugin>
+  <id>com.kevindaly.unique.plugin.id</id>
+  <name>FasterCoder</name>
+  <version>1.0</version>
+  <vendor email="fastercoder@pondbourne.com" url="http://www.pondbourne.com">YourCompany</vendor>
+
+  <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+
+    <group id="faster-Coder-group"  text="Faster Coder" popup="true" >
+    <add-to-group group-id="EditorPopupMenu" anchor="first" />
+
+    <action  id="org.codefaster.CodeFaster"
+             text="File Handling"
+            description="Help to build code faster"
+            class="org.codefaster.CodeFaster">
+            <add-to-group anchor="first" group-id="faster-Coder-group"/>
+    </action>
+
+  </group>
+
+    <group id="designPatterns" text="Design Patterns" popup="true" >
+      <add-to-group group-id="faster-Coder-group" anchor="last" />
+    <action id="DesignPattern" class="org.codefaster.design.pattern.DesignPattern">
+            text="Design Pattern"
+            description="Design Pattern">
+      <add-to-group group-id="designPatterns" anchor="first" />
+    </action>
+
+        <action class="org.codefaster.design.pattern.Factory" id="FactoryPattern" text="Singleton Factory" description="Factory Pattern">
+          <add-to-group group-id="designPatterns" anchor="after"  relative-to-action="designPatterns" />
+  
+      </action>
+    </group>
+    <!--  <action id="org.codefaster.CodeFaster" class="org.codefaster.CodeFaster" text="Code Faster" description="Faster Code ">
+          <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+      </action> -->
+  </actions>
+
+</idea-plugin>
